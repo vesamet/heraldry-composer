@@ -230,7 +230,6 @@ export default {
         //
         heraldriesArray.push(composeHeraldry)
       }
-      console.log(heraldriesArray)
       return heraldriesArray
     },
   },
@@ -258,7 +257,7 @@ body {
   margin: auto;
 }
 .heraldries-container div {
-  max-width: 300px;
+  max-width: 200px;
   margin: 10px;
   display: inline-block;
 }
