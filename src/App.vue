@@ -7,7 +7,7 @@
         v-for="(heraldry, index) in divisionsHeraldries"
         :key="index + 'division'"
       >
-        <Heraldry :heraldry="heraldry" />
+        <Heraldry :heraldry="heraldry" :heraldries="heraldries" />
         <h3 style="text-align:center">
           {{ heraldry.division ? heraldry.division.name : "none" }}
         </h3>
@@ -19,7 +19,7 @@
         v-for="(heraldry, index) in ordinariesHeraldries"
         :key="index + 'ordinary'"
       >
-        <Heraldry :heraldry="heraldry" />
+        <Heraldry :heraldry="heraldry" :heraldries="heraldries" />
         <h3 style="text-align:center">
           {{ heraldry.ordinary ? heraldry.ordinary.name : "none" }}
         </h3>
@@ -31,7 +31,7 @@
         v-for="(heraldry, index) in chargesHeraldries"
         :key="index + 'charge'"
       >
-        <Heraldry :heraldry="heraldry" />
+        <Heraldry :heraldry="heraldry" :heraldries="heraldries" />
         <h3 style="text-align:center">
           {{ heraldry.charge ? heraldry.charge.name : "none" }}
         </h3>
@@ -43,7 +43,7 @@
         v-for="(heraldry, index) in placementsHeraldries"
         :key="index + 'placement'"
       >
-        <Heraldry :heraldry="heraldry" />
+        <Heraldry :heraldry="heraldry" :heraldries="heraldries" />
         <h3 style="text-align:center">
           {{
             heraldry.charge && heraldry.charge.placement
@@ -59,7 +59,7 @@
         v-for="(heraldry, index) in shieldsHeraldries"
         :key="index + 'shield'"
       >
-        <Heraldry :heraldry="heraldry" />
+        <Heraldry :heraldry="heraldry" :heraldries="heraldries" />
         <h3 style="text-align:center">
           {{
             heraldry.shield && heraldry.shield.name
@@ -75,15 +75,15 @@
         v-for="(heraldry, index) in randomHeraldries"
         :key="index + 'random'"
       >
-        <Heraldry :heraldry="heraldry" />
+        <Heraldry :heraldry="heraldry" :heraldries="heraldries" />
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import Heraldry from "@/components/olgorianSlates/heraldryComposer/Heraldry"
-import { heraldries } from "@/components/olgorianSlates/heraldryComposer/heraldries"
+import Heraldry from "@/components/HeraldryComposer/Heraldry"
+import { heraldries } from "@/components/HeraldryComposer/heraldries"
 let iwanthue = require("iwanthue")
 let chroma = require("chroma-js")
 export default {
@@ -92,6 +92,9 @@ export default {
     Heraldry,
   },
   computed: {
+    heraldries() {
+      return heraldries
+    },
     divisionsHeraldries() {
       let heraldriesArray = [
         {
@@ -167,14 +170,21 @@ export default {
           Math.floor(Math.random() * Object.keys(obj).length)
         ]
       }
-
+      let bgLum,
+        chargeLum,
+        partialHue,
+        completeHue,
+        backgroundColors,
+        chargeColors,
+        composeHeraldry
       for (let i = 0; i <= 20; i++) {
         // define colors
         let luminosity = [
           [0, 35], //dark
           [70, 80], //light
         ]
-        let bgLum, chargeLum
+        //randomly choose if the charge or the background elements
+        //will have a darker scheme
         if (Math.floor(Math.random() * Math.floor(2)) === 1) {
           bgLum = luminosity[0]
           chargeLum = luminosity[1]
@@ -182,19 +192,19 @@ export default {
           bgLum = luminosity[1]
           chargeLum = luminosity[0]
         }
-        let partialHue = Math.floor(Math.random() * Math.floor(341))
-        let completeHue = Math.floor(Math.random() * Math.floor(361))
-        let backgroundColors = iwanthue(5, {
+        partialHue = Math.floor(Math.random() * Math.floor(341))
+        completeHue = Math.floor(Math.random() * Math.floor(361))
+        backgroundColors = iwanthue(5, {
           colorSpace: [partialHue, partialHue + 20, 0, 40, bgLum[0], bgLum[1]],
           clustering: "force-vector",
         })
-        let chargeColor = iwanthue(5, {
+        chargeColors = iwanthue(5, {
           colorSpace: [0, 360, 50, 100, chargeLum[0], chargeLum[1]],
           clustering: "force-vector",
         })
 
         // compose heraldry
-        let composeHeraldry = {
+        composeHeraldry = {
           shield: { name: randomProperty(heraldries.shields) },
           field: backgroundColors[0],
           division: {
@@ -211,7 +221,13 @@ export default {
           },
           charge: {
             name: randomProperty(heraldries.charges),
-            color: [chargeColor[0]],
+            color: [
+              chargeColors[0],
+              chargeColors[1],
+              // chargeColors[2],
+              // chargeColors[3],
+              // chargeColors[4],
+            ],
             placement: randomProperty(heraldries.placements),
           },
         }
@@ -226,6 +242,15 @@ export default {
           ) {
             composeHeraldry.charge.placement == "one"
           }
+        }
+        if (
+          composeHeraldry.charge.placement == "two" ||
+          composeHeraldry.charge.placement == "twoVertical"
+        ) {
+          composeHeraldry.charge.color = [
+            composeHeraldry.charge.color[0],
+            composeHeraldry.charge.color[0],
+          ]
         }
         //
         heraldriesArray.push(composeHeraldry)

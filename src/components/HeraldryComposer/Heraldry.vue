@@ -43,7 +43,6 @@
 </template>
 
 <script>
-import { heraldries } from "@/components/olgorianSlates/heraldryComposer/heraldries"
 export default {
   data() {
     return {
@@ -57,14 +56,14 @@ export default {
     heraldry: {
       type: Object,
     },
+    heraldries: {
+      type: Object,
+    },
   },
   computed: {
-    heraldries() {
-      return heraldries
-    },
     shield() {
       if (this.heraldry.shield) {
-        return heraldries.shields[this.heraldry.shield?.name].value
+        return this.heraldries.shields[this.heraldry.shield?.name].value
       } else {
         return ""
       }
@@ -90,12 +89,21 @@ export default {
         let placement = this.heraldries.placements[
           this.heraldry[p.element]?.placement
         ]
-        if (placement?.length) {
-          for (var i = 2; i <= placement.length; i++) {
+        if (placement?.length > 0) {
+          //add the additionnal charges to display depending on the placement
+          for (var i = 1; i <= placement.length; i++) {
             elements.value = Array.from(
               { length: placement.length },
               () => elements.value[0]
             )
+          }
+
+          //apply color/placement rules
+          if (placement.length === 4) {
+            let color1 = this.heraldry[p.element].color[0] || "black"
+            let color2 = this.heraldry[p.element].color[1] || "black"
+            this.heraldry[p.element].color = [color2, color1, color1, color2]
+          } else if (placement.length > this.heraldry[p.element].color.length) {
             this.heraldry[p.element].color = Array.from(
               { length: placement.length },
               () => this.heraldry[p.element].color[0] || "black"
@@ -105,7 +113,7 @@ export default {
         //define and concat element(s)
         let svg = ""
         for (let i = 0; i < elements.value.length; i++) {
-          let color = this.heraldry[p.element].color[i] || color[0] || "black"
+          let color = this.heraldry[p.element].color[i]
           svg = svg.concat(
             `<g
             fill="${color}"
