@@ -63,7 +63,7 @@ export default {
   computed: {
     shield() {
       if (this.heraldry.shield) {
-        return this.heraldries.shields[this.heraldry.shield?.name].value
+        return this.heraldries.shields[this.heraldry.shield.name].value
       } else {
         return ""
       }
@@ -80,16 +80,20 @@ export default {
     },
     defineElement(p) {
       //retrieve array of element's svg strings
-      let elements = this.heraldries[p.arrayName][
-        this.heraldry[p.element]?.name
-      ]
+      let elements
+      if (this.heraldry[p.element] && this.heraldry[p.element].name) {
+        elements = this.heraldries[p.arrayName][this.heraldry[p.element].name]
+      }
 
       if (elements) {
         //apply placement rule
-        let placement = this.heraldries.placements[
-          this.heraldry[p.element]?.placement
-        ]
-        if (placement?.length > 0) {
+        let placement
+        if (this.heraldry[p.element] && this.heraldry[p.element].placement) {
+          placement = this.heraldries.placements[
+            this.heraldry[p.element].placement
+          ]
+        }
+        if (placement && placement.length > 0) {
           //add the additionnal charges to display depending on the placement
           for (var i = 1; i <= placement.length; i++) {
             elements.value = Array.from(

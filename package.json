@@ -30,7 +30,9 @@
   },
   "_id": "bit@1.0.0",
   "bit": {
-    "env": {},
+    "env": {
+      "compiler": "bit.envs/compilers/vue@0.0.16"
+    },
     "componentsDefaultDirectory": "components/{name}",
     "packageManager": "yarn"
   },

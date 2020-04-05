@@ -1,1 +1,34 @@
-[]
+[
+  {
+    "id": {
+      "scope": "bit.envs",
+      "name": "compilers/vue"
+    },
+    "isSymlink": false,
+    "hash": "1e73cc7feb6ce40c4f4c0fe862b44248f6dd4db1"
+  },
+  {
+    "id": {
+      "scope": "bit.envs",
+      "name": "compilers/utils"
+    },
+    "isSymlink": false,
+    "hash": "cc7bb2c0111e69015e8cf907fc7b13755039e61c"
+  },
+  {
+    "id": {
+      "scope": null,
+      "name": "heraldry-composer"
+    },
+    "isSymlink": true,
+    "hash": "77623b1fc0b9afb21a6411206636f3a47e22e2d1"
+  },
+  {
+    "id": {
+      "scope": "vesamet.olgorian-slates",
+      "name": "heraldry-composer"
+    },
+    "isSymlink": false,
+    "hash": "7b1bf8a1fd0edcf58ae3e5567294707df50d9a09"
+  }
+]

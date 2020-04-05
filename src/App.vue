@@ -1,6 +1,15 @@
 <template>
   <div id="app">
     <h1>Heraldry Composer</h1>
+    <p>
+      Heraldry Composer is a humble library for generating & displaying medieval
+      heraldries of all kinds.
+    </p>
+    <p>
+      Visit
+      <a href="https://github.com/vesamet/heraldry-composer">Github</a> for
+      installation & usage.
+    </p>
     <h2>Divisions</h2>
     <div class="heraldries-container">
       <div
@@ -262,8 +271,9 @@ export default {
 </script>
 
 <style>
+@import url("https://fonts.googleapis.com/css?family=Merriweather:700i&display=swap");
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: "Merriweather", serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
@@ -282,6 +292,7 @@ body {
   margin: auto;
 }
 .heraldries-container div {
+  min-width: 180px;
   max-width: 200px;
   margin: 10px;
   display: inline-block;
