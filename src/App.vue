@@ -301,8 +301,8 @@ body {
   background: rgb(255, 255, 255);
   background: linear-gradient(
     176deg,
-    rgba(255, 255, 255, 1) 0%,
-    rgba(216, 225, 227, 1) 100%
+    rgba(216, 225, 227, 1) 0%,
+    rgba(255, 255, 255, 1) 100%
   );
 }
 .heraldries-container {
