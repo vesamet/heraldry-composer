@@ -12,7 +12,7 @@ Visit https://vesamet.github.io/heraldry-composer/ to see it in action.
 yarn add @bit/vesamet.olgorian-slates.heraldry-composer
 ```
 
-### Usage
+## Usage
 
 1. Import and register the Heraldry component
 
