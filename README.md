@@ -4,7 +4,7 @@
 Heraldry Composer is a Vuejs component for generating & displaying medieval heraldries of all kinds.
 It's vector based (svg), fully responsive, customizable, and as no dependencies.
 
-Visit https://vesamet.github.io/heraldry-composer/ to see it in action.
+Visit https://vesamet.github.io/heraldry-composer/ to see some examples.
 
 ## Installation
 1. Install the package
