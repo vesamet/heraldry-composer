@@ -72,7 +72,7 @@ heraldry: {
 
 Note that charges with a placement of 4 will always have the two first
 
-## Adding your own shield type, division, ordinaries or charge
+## Adding your own shield types, divisions, ordinaries or charges
 
 **For divisions, ordinaries and charges:**
 
