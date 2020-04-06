@@ -70,7 +70,7 @@ heraldry: {
       },
 ```
 
-Note that charges with a placement of 4 will always have the two first
+**Note that charges with a placement of 4 will always have the two first colors**
 
 ## Adding your own shield types, divisions, ordinaries or charges
 
