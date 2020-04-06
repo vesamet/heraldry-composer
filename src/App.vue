@@ -2,15 +2,22 @@
   <div id="app">
     <h1>Heraldry Composer</h1>
     <p>
-      Heraldry Composer is a humble library for generating & displaying medieval
-      heraldries of all kinds.
+      Heraldry Composer is a Vuejs component for generating & displaying
+      medieval heraldries of all kinds.
     </p>
     <p>
       Visit
       <a href="https://github.com/vesamet/heraldry-composer">Github</a> for
       installation & usage.
     </p>
-    <h2>Divisions</h2>
+    <p class="menu">
+      <a href="#disivions">Divisions</a> |
+      <a href="#ordinaries">Ordinaries</a> | <a href="#charges">Charges</a> |
+      <a href="#shield">Shields</a> |
+      <a href="#generated">Generated heraldries</a>
+    </p>
+    <h2 id="divisions">Divisions</h2>
+    <hr />
     <div class="heraldries-container">
       <div
         v-for="(heraldry, index) in divisionsHeraldries"
@@ -22,7 +29,8 @@
         </h3>
       </div>
     </div>
-    <h2>Ordinaries</h2>
+    <h2 id="ordinaries">Ordinaries</h2>
+    <hr />
     <div class="heraldries-container">
       <div
         v-for="(heraldry, index) in ordinariesHeraldries"
@@ -34,7 +42,8 @@
         </h3>
       </div>
     </div>
-    <h2>Charges</h2>
+    <h2 id="charges">Charges</h2>
+    <hr />
     <div class="heraldries-container">
       <div
         v-for="(heraldry, index) in chargesHeraldries"
@@ -46,7 +55,8 @@
         </h3>
       </div>
     </div>
-    <h2>Placements</h2>
+    <h2 id="placements">Placements</h2>
+    <hr />
     <div class="heraldries-container">
       <div
         v-for="(heraldry, index) in placementsHeraldries"
@@ -62,7 +72,8 @@
         </h3>
       </div>
     </div>
-    <h2>Shields</h2>
+    <h2 id="shields">Shields</h2>
+    <hr />
     <div class="heraldries-container">
       <div
         v-for="(heraldry, index) in shieldsHeraldries"
@@ -78,7 +89,13 @@
         </h3>
       </div>
     </div>
-    <h2>Random heraldries</h2>
+    <h2 id="generated">Generated heraldries</h2>
+    <hr />
+    <p>
+      Note that heraldries whose colors have been carefully picked may produce
+      better result.<br /><br />
+      You may refresh the page to generate another batch of heraldries.
+    </p>
     <div class="heraldries-container">
       <div
         v-for="(heraldry, index) in randomHeraldries"
@@ -296,5 +313,16 @@ body {
   max-width: 200px;
   margin: 10px;
   display: inline-block;
+}
+a:hover {
+  color: rgb(71, 0, 0);
+}
+a {
+  color: rgb(131, 5, 5);
+}
+.menu {
+  display: block;
+  margin: auto;
+  padding-top: 20px;
 }
 </style>
