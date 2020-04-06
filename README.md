@@ -7,7 +7,7 @@ Visit https://vesamet.github.io/heraldry-composer/ to see it in action.
 
 ## Installation
 
-```
+```js
 yarn add @bit/vesamet.olgorian-slates.heraldry-composer
 ```
 
@@ -15,7 +15,7 @@ yarn add @bit/vesamet.olgorian-slates.heraldry-composer
 
 1. Import and register the Heraldry component
 
-```
+```js
 import Heraldry from "@bit/vesamet.olgorian-slates.heraldry-composer"
 
 export default {
@@ -25,9 +25,9 @@ export default {
 }
 ```
 
-2. Import the "ruleset" where all the elements of the heraldry are defined
+2. Import the "ruleset" where all the elements available for the heraldries are defined
 
-```
+```js
 import { heraldries } from "@bit/vesamet.olgorian-slates.heraldry-composer/heraldries"
 
 computed: {
@@ -39,15 +39,16 @@ computed: {
 
 3. Define the component in your vue template
 
-```
+```js
 <Heraldry :heraldry="heraldry" :heraldries="heraldries" />
 ```
 
 4. Define your heraldry
-   From the element displayed on [the github page](https://vesamet.github.io/heraldry-composer/), choose your desired shield type, divison, ordinary and charge, and colors.
-   Your heraldry definition should have the same format as the following example:
 
-```
+From the element displayed on [the github page](https://vesamet.github.io/heraldry-composer/), choose your desired shield type, divison, ordinary and charge, and colors.
+Your heraldry definition should have the same format as the following example:
+
+```js
 heraldry: {
         shield: {
           name: "default",
@@ -72,7 +73,7 @@ Note that charges with a placement of 4 will always have the two first
 
 ### Adding your own shield type, division, ordinaries or charge
 
-**For division, ordinaries and charges:**
+**For divisions, ordinaries and charges:**
 
 1. Create your element using your favorite vector editor. Make sure you set the canvas to 250 width by 300 height. Then export it as svg
 2. (Optionnal) Minify your svg.
@@ -83,7 +84,7 @@ Note that charges with a placement of 4 will always have the two first
 3. Open your svg with a text editor and copy enverything that is **inside** the svg tags,
    then paste it in the "ruleset", like so:
 
-```
+```js
 divisions: {
     //...
     cloakedRight: {
@@ -94,19 +95,20 @@ divisions: {
 
 You may split the element in multiple strings so that each path will have it's own color:
 
-```
+```js
 {
      value: [`<path d="M0 0l250 300H0z"/>` + `<path d="M250 0L0 300h250z"/>`],
 }
 ```
 
-**For shield types**
+**For shield types:**
+
 Simply define a css [clip-path polygon](https://bennettfeely.com/clippy/) and add it in the "ruleset". Just make sure the units are in percentage (%).
 
 For complex forms, I suggest you do the following:
 
-1. define
-2. visit this [online tool](https://betravis.github.io/shape-tools/path-to-polygon/), upload your image, use the following settings :
+1. Define your element just like the first step for divisions, ordinaries or charges.
+2. visit this [online tool](https://betravis.github.io/shape-tools/path-to-polygon/), upload your svg, use the following settings :
    divideXBy: 2.5
    divideYBy: 3
    units: %
@@ -125,36 +127,34 @@ wankel: {
 ### FAQ
 
 **Why isn't the component accepting svg files as props instead?**
+
 For portability reasons, and also to reduce the load time of the components when used in bulk.
 Since svg's xml is very lightweight, I find it very practical to simply store it as a string in a javascript object.
 
 **My project is not based on vue-cli, how can I use your component?**
+
 Since Vuejs is only 60K, I suggest you use it along with http-vue-loader.
 Start with this template, then follow the installation/usage instruction.
 
+In your project header add the following:
 ```
-<!DOCTYPE html>
-<html lang="en">
 <head>
-  <title>Hello World</title>
   <script src="https://unpkg.com/vue"></script>
   <script src="https://unpkg.com/http-vue-loader"></script>
 </head>
-
-<body>
-  <h1>Static HTML With Vue.js Single File Component</h1>
-
-  <div id="app">
-    <span>Hello</span>
-    <app-world></app-world>
+```
+Then, anywhere in your project, add a vue instance
+```
+  <div id="heraldry">
+    <Heraldry />
   </div>
 
   <script>
     new window.Vue({
-      el: '#app',
+      el: '#heraldry',
 
       components: {
-        'app-world': window.httpVueLoader('/js/components/AppWorld.vue')
+        'Heraldry': window.httpVueLoader('/js/path/to/Heraldry.vue')
       },
     })
   </script>
