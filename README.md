@@ -1,4 +1,5 @@
-# Heraldry Composer
+
+![Heraldry Composer logo](https://github.com/vesamet/heraldry-composer/blob/master/screenshot.png "Heraldry Composer logo")
 
 Heraldry Composer is a humble library for generating & displaying medieval heraldries of all kinds.
 Vector based (svg), fully responsive and customizable.
@@ -7,7 +8,7 @@ Visit https://vesamet.github.io/heraldry-composer/ to see it in action.
 
 ## Installation
 
-```js
+```cmd
 yarn add @bit/vesamet.olgorian-slates.heraldry-composer
 ```
 
