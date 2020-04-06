@@ -2,17 +2,15 @@
 ![Heraldry Composer logo](https://github.com/vesamet/heraldry-composer/blob/master/screenshot.png "Heraldry Composer logo")
 
 Heraldry Composer is a Vuejs component for generating & displaying medieval heraldries of all kinds.
-Vector based (svg), fully responsive and customizable.
+It's vector based (svg), fully responsive, customizable, and as no dependencies.
 
 Visit https://vesamet.github.io/heraldry-composer/ to see it in action.
 
 ## Installation
-
+1. Install the package
 ```
 yarn add @bit/vesamet.olgorian-slates.heraldry-composer
 ```
-
-## Usage
 
 1. Import and register the Heraldry component
 
@@ -37,14 +35,15 @@ computed: {
     },
 },
 ```
+##Usage
 
-3. Define the component in your vue template
+1. Define the component in your vue template
 
 ```js
 <Heraldry :heraldry="heraldry" :heraldries="heraldries" />
 ```
 
-4. Define your heraldry
+2. Define your heraldry
 
 From the element displayed on [the github page](https://vesamet.github.io/heraldry-composer/), choose your desired shield type, divison, ordinary and charge, and colors.
 Your heraldry definition should have the same format as the following example:
@@ -69,10 +68,11 @@ heraldry: {
         },
       },
 ```
+**A complete example can be found in [this playground](https://bit.dev/vesamet/olgorian-slates/heraldry-composer)**
 
 Note that charges with a placement of 4 will always have the two first
 
-### Adding your own shield type, division, ordinaries or charge
+## Adding your own shield type, division, ordinaries or charge
 
 **For divisions, ordinaries and charges:**
 
@@ -125,7 +125,7 @@ wankel: {
 },
 ```
 
-### FAQ
+## FAQ
 
 **Why isn't the component accepting svg files as props instead?**
 
