@@ -36,7 +36,7 @@ computed: {
 },
 ```
 ## Usage
-**TLDR: see the example this [playground](https://bit.dev/vesamet/olgorian-slates/heraldry-composer)**
+**TLDR: see the example in this [playground](https://bit.dev/vesamet/olgorian-slates/heraldry-composer)**
 
 1. Define the component in your vue template
 
