@@ -35,7 +35,7 @@ computed: {
     },
 },
 ```
-##Usage
+## Usage
 
 1. Define the component in your vue template
 
