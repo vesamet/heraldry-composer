@@ -36,6 +36,7 @@ computed: {
 },
 ```
 ## Usage
+**TLDR: see the example this [playground](https://bit.dev/vesamet/olgorian-slates/heraldry-composer)**
 
 1. Define the component in your vue template
 
@@ -68,7 +69,6 @@ heraldry: {
         },
       },
 ```
-**A complete example can be found in [this playground](https://bit.dev/vesamet/olgorian-slates/heraldry-composer)**
 
 Note that charges with a placement of 4 will always have the two first
 
