@@ -108,8 +108,9 @@
 </template>
 
 <script>
-import Heraldry from "@/components/HeraldryComposer/Heraldry"
-import { heraldries } from "@/components/HeraldryComposer/heraldries"
+import Heraldry from "@bit/vesamet.olgorian-slates.heraldry-composer"
+import { heraldries } from "@bit/vesamet.olgorian-slates.heraldry-composer/heraldries"
+
 let iwanthue = require("iwanthue")
 let chroma = require("chroma-js")
 export default {

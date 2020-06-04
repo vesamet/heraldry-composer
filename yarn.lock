@@ -939,6 +939,11 @@
     lodash "^4.17.13"
     to-fast-properties "^2.0.0"
 
+"@bit/vesamet.olgorian-slates.heraldry-composer@^0.0.3":
+  version "0.0.3"
+  resolved "https://node.bit.dev/vesamet.olgorian-slates.heraldry-composer/-/vesamet.olgorian-slates.heraldry-composer-0.0.3.tgz#2e268cc78525770d94db0ac1a157422cac8983ee"
+  integrity sha1-LiaMx4Uldw2U2wrBoVdCLKyJg+4=
+
 "@endemolshinegroup/cosmiconfig-typescript-loader@^1.0.0":
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/@endemolshinegroup/cosmiconfig-typescript-loader/-/cosmiconfig-typescript-loader-1.0.1.tgz#484ee6f4e9209ffde5d3edbdacf03e0bc5ee0c67"
