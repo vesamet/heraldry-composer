@@ -9,6 +9,7 @@ Visit https://vesamet.github.io/heraldry-composer/ to see some examples.
 ## Installation
 1. Install the package
 ```
+yarn config set @bit:registry https://node.bit.dev
 yarn add @bit/vesamet.olgorian-slates.heraldry-composer
 ```
 

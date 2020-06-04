@@ -9,7 +9,7 @@
   },
   "main": "index.js",
   "dependencies": {
-    "@bit/vesamet.olgorian-slates.heraldry-composer": "^0.0.3",
+    "@bit/vesamet.olgorian-slates.heraldry-composer": "^0.0.4",
     "chroma-js": "^2.1.0",
     "core-js": "^3.6.4",
     "iwanthue": "^1.4.0",
